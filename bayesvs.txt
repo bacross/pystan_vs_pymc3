@@ -1,0 +1,3 @@
+# packages in environment at /home/ubuntu/anaconda3/envs/bayesvs:
+#
+# Name                    Version                   Build  Channel
