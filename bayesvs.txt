@@ -1,3 +1,3 @@
-# packages in environment at /home/ubuntu/anaconda3/envs/bayesvs:
+# packages in environment at C:\Users\bacro\Anaconda3:
 #
 # Name                    Version                   Build  Channel
