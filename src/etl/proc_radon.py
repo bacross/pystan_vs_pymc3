@@ -13,6 +13,8 @@ def proc_radon(df_radon):
     data['log_radon'] = data['log_radon'].apply(lambda x: math.log(x) if x>0. else np.nan)
     
     data = data.loc[:,['county','log_radon','floor']]
+
+    data.floor = pd.to_numeric(data.floor)
     
     repo_path='.'
     radon_path = repo_path+'/data/processed/radon_proc.parq'

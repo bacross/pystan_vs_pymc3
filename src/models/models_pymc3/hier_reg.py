@@ -5,6 +5,8 @@ import timeit
 
 def run_hier_reg(ndata, sample_size, njobs):
 	start_time = timeit.default_timer()
+	county_names = ndata.county.unique()
+	county_idx=pd.factorize(ndata.county)[0]
 	with pm.Model() as hier_mod:
 		# Hyperpriors
 		mu_a = pm.Normal('mu_alpha', mu=0., sd=1)
