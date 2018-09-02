@@ -7,6 +7,7 @@ njobs = 4
 hier_stan_code = """
 	data {
 		int<lower=0> J;
+		int<lower=0> N;
 		int<lower=1,upper=J> county[N];
 		vector[N] x;
 		vector[N] y;
