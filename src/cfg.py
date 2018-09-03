@@ -8,7 +8,7 @@ hier_stan_code = """
 	data {
 		int<lower=0> J;
 		int<lower=0> N;
-		int<lower=1,upper=J> county[N];
+		int county[N];
 		vector[N] x;
 		vector[N] y;
 	}
@@ -16,18 +16,12 @@ hier_stan_code = """
 		vector[J] a;
 		vector[J] b;
 		real mu_a;
-		real sigma_a;
+		real<lower=0> sigma_a;
 		real mu_b;
-		real sigma_b;
-		real sigma_y;
+		real<lower=0> sigma_b;
+		real<lower=0> sigma_y;
 	}
-	transformed parameters {
-		
-		vector[N] y_hat;
-		
-		for (i in 1:N)
-			y_hat[i] <- a[county[i]] + x[i]*b[county[i]];
-	}
+
 	model {
 		mu_a ~ normal (0,1);
 		sigma_a ~ cauchy(0,1);
@@ -38,6 +32,6 @@ hier_stan_code = """
 		b ~ normal (mu_b, sigma_b);
 		
 		sigma_y ~ cauchy(0,1);
-		y ~ normal(y_hat, sigma_y);
+		y ~ normal(a[county] + b[county].*x, sigma_y);
 	}
 	"""
