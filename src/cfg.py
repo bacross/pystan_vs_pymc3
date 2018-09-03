@@ -1,5 +1,7 @@
 refresh_radon_data_flag=True
 
+radon_data_url = 'http://www.stat.columbia.edu/~gelman/arm/examples/radon_complete/srrs2.dat'
+
 sample_size=1000
 
 njobs = 4

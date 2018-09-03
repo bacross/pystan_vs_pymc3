@@ -16,6 +16,6 @@ def run_hier_reg(ndata, sample_size, chains, hier_stan_code):
 				 'x': ndata.floor,
 				 'y': ndata.log_radon}
 	hier_fit = ps.stan(model_code=hier_stan_code, data=hier_data,
-						iter=sample_size, chains=chains)
+						iter=sample_size, chains=chains,n_jobs=chains)
 	time_del = timeit.default_timer() - start_time
 	return time_del
