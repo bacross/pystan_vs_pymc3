@@ -19,12 +19,11 @@ from src.models.models_pymc3 import hier_reg_pymc3 as hr_pymc3
 
 time_del_pm = hr_pymc3.run_hier_reg(data, cfg.sample_size, cfg.njobs)
 
-print('Time Delta for Hierarchical Regression Using pymc3 is %s seconds' %(time_del_pm))
-
 ### Run pystan hier regression 
 from src.models.models_pystan import hier_reg_pystan as hr_stan
 
 time_del_stan = hr_stan.run_hier_reg(data, cfg.sample_size, 4, cfg.hier_stan_code)
 
+print('Time Delta for Hierarchical Regression Using pymc3 is %s seconds' %(time_del_pm))
 print('Time Delta for Hierarchical Regression Using pystan is %s seconds' %(time_del_stan))
 
