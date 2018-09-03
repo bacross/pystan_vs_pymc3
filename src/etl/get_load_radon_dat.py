@@ -3,11 +3,11 @@ import urllib
 from fastparquet import write
 
 
-def get_load_radon_dat(refresh_radon_data_flag,cfg.radon_data_url):
+def get_load_radon_dat(refresh_radon_data_flag,radon_data_url):
     repo_path='.'
     radon_path = repo_path+'/data/raw/radon_raw.parq'
     if refresh_radon_data_flag==True:
-        data_url = cfg.radon_data_url
+        data_url = radon_data_url
         resp = urllib.request.urlopen(data_url).read()
         data = str(resp).split('\\n')
         data = [nstr.split(',') for nstr in data]

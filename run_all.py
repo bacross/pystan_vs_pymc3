@@ -7,7 +7,7 @@ from src import cfg
 ### Refresh Radon data if flag==True, otherwise load from saved parquet file
 from src.etl.get_load_radon_dat import get_load_radon_dat as glrd
 
-df_radon = glrd(cfg.refresh_radon_data_flag)
+df_radon = glrd(cfg.refresh_radon_data_flag, cfg.radon_data_url)
 
 ### Process Radon data 
 from src.etl.proc_radon import proc_radon
